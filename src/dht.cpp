@@ -99,7 +99,7 @@ namespace libcage {
                 m_fast_timer_dht(*this),
                 m_join(*this),
                 m_sync(*this),
-                m_is_use_rdp(true)
+                m_is_use_rdp(false)
         {
                 rdp_recv_store_func func_recv(*this);
                 rdp_recv_get_func   func_get(*this);
