@@ -267,6 +267,11 @@ namespace libcage {
 
         }
 
+        std::list<cageaddr> const
+        cage::get_table() const {
+            return m_dht.get_table();
+        }
+
         void
         cage::set_id(const char *buf, int len)
         {
@@ -282,6 +287,12 @@ namespace libcage {
                 m_id.from_binary(md_value, md_len);
 
                 EVP_MD_CTX_cleanup(&md_ctx);
+        }
+
+        void
+        cage::set_id_str(std::string str)
+        {
+                m_id.from_string(str);
         }
 
         int

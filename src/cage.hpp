@@ -110,8 +110,11 @@ namespace libcage {
                 void            set_cone_nat() { m_nat.set_state_cone_nat(); }
                 void            set_symmetric_nat() { m_nat.set_state_symmetric_nat(); }
                 void            set_id(const char *buf, int len);
+                void            set_id_str(std::string str);
 
                 void            print_state() const;
+                std::list<cageaddr> const
+                get_table() const;
 
 
         private:

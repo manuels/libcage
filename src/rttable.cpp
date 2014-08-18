@@ -414,6 +414,23 @@ namespace libcage {
                 }
         }
 
+        std::list<cageaddr> const
+        rttable::get_table() const
+        {
+            std::string id;
+            std::map<int, std::list<cageaddr> >::const_iterator i;
+            std::list<cageaddr>::const_iterator                 j;
+
+            std::list<cageaddr> all_nodes;
+
+            for (i = m_table.begin(); i != m_table.end(); ++i) {
+                    const std::list<cageaddr> &row = i->second;
+                  	all_nodes.insert(all_nodes.end(), row.begin(), row.end());
+            }
+
+		    return all_nodes;
+        }
+
         void
         rttable::merge_nodes(const uint160_t &id, std::vector<cageaddr> &dst,
                              const std::vector<cageaddr> &v1,

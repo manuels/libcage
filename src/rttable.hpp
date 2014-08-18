@@ -62,6 +62,7 @@ namespace libcage {
                 void            recv_ping_reply(cageaddr &src, uint32_t nonce);
 
                 void            print_table() const;
+                std::list<cageaddr> const get_table() const;
                 bool            is_zero();
                 int             get_size();
                 bool            has_id(uint160_t &id);
