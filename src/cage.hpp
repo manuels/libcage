@@ -152,12 +152,16 @@ namespace libcage {
                 public:
                         gen_id(uint160_t &id)
                         {
+                                size_t i;
                                 unsigned char buf[20];
 
                                 RAND_pseudo_bytes(buf, sizeof(buf));
                                 id.from_binary(buf, sizeof(buf));
 
-                                seed = *(uint32_t*)buf + time(NULL);
+                                seed = 0;
+                                for (i = 0; i < sizeof(seed); ++i)
+                                    seed += buf[8] << i*8;
+                                seed += time(NULL);
                         }
 
                         uint32_t seed;
