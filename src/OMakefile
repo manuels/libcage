@@ -1,6 +1,7 @@
-CXXFLAGS += -Wall -fPIC
+CXXFLAGS += -Wall -fPIC -D _FORTIFY_SOURCE=2 -O2 -g -Werror -fstack-protector-all -Wstack-protector --param ssp-buffer-size=4 -pie -ftrapv -Wl,-z,relro,-z,now
+CFLAGS += $(CXXFLAGS)
 # ASFLAGS +=
-LDFLAGS += -lcrypto
+LDFLAGS += -lcrypto #-fPIC -fpic
 # INCLUDES +=
 
 if $(equal $(SYSNAME), Darwin)
